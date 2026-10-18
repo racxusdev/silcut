@@ -1,0 +1,14 @@
+# 70-silhouette.rules — acesso de usuário comum aos cortadores
+# Silhouette/Graphtec via USB (sem sudo).
+#
+# Instalar:  sudo cp 70-silhouette.rules /etc/udev/rules.d/
+# Recarregar: sudo udevadm control --reload && sudo udevadm trigger
+# Depois desconecte e reconecte a máquina.
+
+# Graphtec / Silhouette (vendor 0b4d)
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0b4d", MODE="0660", TAG+="uaccess"
+# Silhouette Cameo 5 Alpha (vendor 3844)
+SUBSYSTEM=="usb", ATTRS{idVendor}=="3844", MODE="0660", TAG+="uaccess"
+
+# Dispositivos tty (alguns modelos legados expõem porta serial)
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0b4d", MODE="0660", TAG+="uaccess"

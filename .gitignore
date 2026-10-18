@@ -1,0 +1,16 @@
+# Rust
+/target/
+*.rs.bk
+
+# Pacotes gerados pelo build.sh
+/dist/
+*.AppImage
+*.tar.gz
+
+# Ferramentas locais do editor/agente
+/.mimocode/
+/.vscode/
+/.idea/
+
+# Saídas de teste (dry-run)
+*.gpgl

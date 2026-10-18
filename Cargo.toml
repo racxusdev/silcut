@@ -1,0 +1,47 @@
+[package]
+name = "silcut"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Ferramenta nativa Linux para cortadores Silhouette/Graphtec — protocolo GPGL (0,05 mm), USB direto, sem Wine"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/racxusdev/silcut"
+keywords = ["silhouette", "graphtec", "gpgl", "cutter", "plotter"]
+categories = ["hardware-support", "graphics"]
+
+[lib]
+name = "silcut"
+path = "src/lib.rs"
+
+[[bin]]
+name = "silcut"
+path = "src/bin/silcut.rs"
+
+[[bin]]
+name = "silcut-gui"
+path = "src/bin/silcut-gui.rs"
+
+[dependencies]
+# Transporte USB. `vendored` compila a libusb-1.0 embutida — não exige
+# libusb-1.0-dev do sistema nem sudo para compilar.
+rusb = { version = "0.9", features = ["vendored"] }
+# GUI nativa (OpenGL/software, sem GTK pesado)
+eframe = "0.29"
+# Diálogo de arquivos nativo
+rfd = "0.15"
+# CLI
+clap = { version = "4", features = ["derive"] }
+# Configuração TOML em ~/.config/silcut (equivalente Linux do Registro do Windows)
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+anyhow = "1"
+thiserror = "2"
+# Decodificação de imagem para vetorização (potrace exige bitmap)
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp", "gif", "webp"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"

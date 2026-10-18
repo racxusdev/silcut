@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Arquivo de teste do silcut: quadrado 50×50 mm com círculo de 20 mm de
+     diâmetro no centro. Espere no preview: moldura da mídia em volta,
+     quadrado azul, círculo azul. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="60mm" height="60mm" viewBox="0 0 60 60">
+  <rect x="5" y="5" width="50" height="50" fill="none" stroke="black"/>
+  <circle cx="30" cy="30" r="10" fill="none" stroke="black"/>
+</svg>
