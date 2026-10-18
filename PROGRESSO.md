@@ -13,13 +13,13 @@
 |---|---|
 | Sem Wine | O usuário pediu explicitamente app nativo standalone. |
 | Linguagem | Rust (toolchain 1.99 disponível em ~/.cargo). |
-| Local do projeto | `/home/berttone/silcut` |
+| Local do projeto | `~/silcut` |
 | GUI | `eframe`/`egui` 0.29 (janela própria, leve, sem GTK). |
 | USB | `rusb 0.9` com feature **`vendored`** (libusb embutida — a máquina NÃO tem `libusb-1.0-dev`; gcc presente, então o vendored compila). |
 | Config | TOML em `~/.config/silcut/config.toml` (equivalente do Registro). |
 | Licença | GPL-3.0-or-later (fatos de protocolo vêm de projeto GPL; implementação é original). |
-| App original analisado | `/media/berttone/M2/Silhouette Studio` — Xojo + plugins MBS; NÃO descompilado (proibido por EULA); análise factual apenas. |
-| Pasta de desenhos do usuário | `/home/berttone/Silhouette` (arquivos .studio3/.dxf/.png — referência de uso, não é código). |
+| App original analisado | instalação Windows do Silhouette Studio — Xojo + plugins MBS; NÃO descompilado (proibido por EULA); análise factual apenas. |
+| Pasta de desenhos de referência | `~/Silhouette` (arquivos .studio3/.dxf/.png — referência de uso, não é código). |
 
 ## 2. FATOS DE PROTOCOLO VERIFICADOS (base de todo o driver)
 

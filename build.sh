@@ -20,7 +20,11 @@ APPDIR=${APP}.AppDir
 
 echo "== cargo build (release) =="
 if [[ $FAST -eq 1 ]]; then
-    cargo build --release --fast
+    # sem LTO/max opt: compila bem mais rápido (o produto final é maior e mais lento)
+    CARGO_PROFILE_RELEASE_LTO=false \
+    CARGO_PROFILE_RELEASE_CODEGEN_UNITS=16 \
+    CARGO_PROFILE_RELEASE_OPT_LEVEL=2 \
+        cargo build --release
 else
     cargo build --release
 fi

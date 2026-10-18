@@ -45,6 +45,31 @@ Depois:
 
 Para remover: `./install.sh --uninstall` (mantém `~/.config/silcut`).
 
+## Dependências do sistema
+
+Precisas de Rust (edição 2021, `rustc` ≥ 1.75) e de um compilador C. No
+Debian/Ubuntu:
+
+```bash
+sudo apt install build-essential pkg-config python3 \
+     libx11-dev libxcursor-dev libxrandr-dev libxi-dev \
+     libxkbcommon-dev libwayland-dev libgl1-mesa-dev
+```
+
+Fedora:
+
+```bash
+sudo dnf install gcc gcc-c++ make pkgconf python3 libX11-devel \
+     libXcursor-devel libXrandr-devel libXi-devel libxkbcommon-devel \
+     wayland-devel mesa-libGL-devel
+```
+
+* `build-essential` + `pkg-config` — a libusb é compilada embutida (`rusb` com
+  `vendored`), por isso precisa de `cc`.
+* `python3` — usado por `build.sh`/`install.sh` (versão do pacote e ícone).
+* Opcionais: `potrace` (vetorização de imagens), `appimagetool`/`linuxdeploy`
+  (AppImage).
+
 ## Compilar (manual)
 
 ```bash

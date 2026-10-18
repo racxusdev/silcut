@@ -32,6 +32,29 @@ fully self-contained.
 ./install.sh --uninstall
 ```
 
+## System dependencies
+
+You need Rust (2021 edition, `rustc` ≥ 1.75) and a C compiler. On Debian/Ubuntu:
+
+```bash
+sudo apt install build-essential pkg-config python3 \
+     libx11-dev libxcursor-dev libxrandr-dev libxi-dev \
+     libxkbcommon-dev libwayland-dev libgl1-mesa-dev
+```
+
+Fedora:
+
+```bash
+sudo dnf install gcc gcc-c++ make pkgconf python3 libX11-devel \
+     libXcursor-devel libXrandr-devel libXi-devel libxkbcommon-devel \
+     wayland-devel mesa-libGL-devel
+```
+
+* `build-essential` + `pkg-config` — libusb is compiled in (`rusb` with the
+  `vendored` feature), so a working `cc` is required.
+* `python3` — used by `build.sh`/`install.sh` (package version and icon).
+* Optional: `potrace` (image tracing), `appimagetool`/`linuxdeploy` (AppImage).
+
 ## Build from source
 
 ```bash
